@@ -25,16 +25,28 @@ class RandomWordsState extends State<RandomWords> {
     // They have to be created at the top to be 
     // available to the functions
     final List<WordPair> _suggestions = <WordPair>[];
+    // Save the preferred WordPairs
+    final Set<WordPair> _saved = Set<WordPair>();
+
     final TextStyle _biggerFont = const TextStyle(fontSize: 18);
     
     // Function to create a row for listview of words
     // It has to be created before it can be called in
     // _buildSuggestions()
     Widget _buildRow(WordPair pair) {
+      // State whether the corresponding WordPair has been saved
+      final bool alreadySaved = _saved.contains(pair);
+      
       return ListTile(
-        title: Text(
+        title: 
+        Text(
           pair.asPascalCase,
           style: _biggerFont,
+        ),
+        trailing: 
+        Icon(
+          alreadySaved ? Icons.favorite : Icons.favorite_border,
+          color: alreadySaved ? Colors.red : null,
         ),
       );
     }
