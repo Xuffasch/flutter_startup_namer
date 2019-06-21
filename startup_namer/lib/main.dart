@@ -19,8 +19,6 @@ class RandomWords extends StatefulWidget {
 }
 
 class RandomWordsState extends State<RandomWords> {
-  @override
-  Widget build(BuildContext context) {
     // Variables to store words and set word size
     // They have to be created at the top to be 
     // available to the functions
@@ -73,6 +71,13 @@ class RandomWordsState extends State<RandomWords> {
       );
     }
 
+  // The build function should be put at the end of the class.
+  // It will be called to rebuild the entire scaffold every time
+  // the state parameters such as _saved is updated. Putting the
+  // "_saved" inside as in the previous commit, will reinitialize
+  // the state data and nothing would seem to be saved.
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: 
         AppBar(
