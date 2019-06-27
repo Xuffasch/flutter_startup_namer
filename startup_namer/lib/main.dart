@@ -8,6 +8,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Welcome to Flutter',
+      // feature theme : Change the general color of the app
+      theme: ThemeData(primaryColor: Colors.white),
       home: RandomWords(),
     );
   }
